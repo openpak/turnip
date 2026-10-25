@@ -59,7 +59,7 @@ meson setup build --cross-file "$TMPDIR/cross.txt" --prefix "$out" \
 	-Dplatform-sdk-version=35 -Dandroid-stub=true -Dgallium-drivers= \
 	-Dvulkan-drivers=freedreno -Dvulkan-beta=true -Dfreedreno-kmds=kgsl \
 	-Degl=disabled -Dandroid-libbacktrace=disabled
-ninja -C build install
+ninja -C build -j "${JOBS:-4}" install
 
 rev="$(git rev-parse --short=10 HEAD)"
 cd "$out/lib"
