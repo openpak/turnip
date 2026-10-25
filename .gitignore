@@ -1,0 +1,6 @@
+mesa/
+build/
+out/
+work/
+venv/
+*.zip
